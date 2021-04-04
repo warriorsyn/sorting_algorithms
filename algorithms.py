@@ -25,9 +25,7 @@ def bubble_sort(numbers) -> list:
     while not ordered:
         ordered = True
         for i in range(len(numbers) - 1):
-            # Remove 1 from len to make sure that i + 1 wont be out of index
             if numbers[i] > numbers[i + 1]:
-                # If list in position i is greater than next position then change positions
                 numbers[i], numbers[i + 1] = numbers[i + 1], numbers[i]
                 ordered = False
     return numbers
@@ -39,7 +37,6 @@ def bubble_sort(numbers) -> list:
 def selection_sort(numbers):
     time.sleep(1)
     for i in range(len(numbers)):
-        # Loop for list and presume that minimum index is the first one
         min_index = i
         for j in range(i + 1, len(numbers)):
             if numbers[j] < numbers[min_index]:
@@ -53,6 +50,7 @@ def selection_sort(numbers):
 
 @measure
 def insertion_sort(numbers):
+    time.sleep(1)
     for i in range(1, len(numbers)):
         aux = numbers[i]
         k = i - 1
