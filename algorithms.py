@@ -12,7 +12,7 @@ def measure(func):
         end_time = time.time()
         time_elapsed = end_time - start_time
         print(f"Elapsed time was {time_elapsed}")
-        return args
+        return args[0]
 
     return inner
 
@@ -45,7 +45,6 @@ def selection_sort(numbers):
             if numbers[j] < numbers[min_index]:
                 min_index = j
         numbers[i], numbers[min_index] = numbers[min_index], numbers[i]
-        print(numbers)
 
     return numbers
 
@@ -65,8 +64,3 @@ def insertion_sort(numbers):
         numbers[k + 1] = aux
 
     return numbers
-
-
-print(bubble_sort(random_numbers), 'BUBBLE SORT')
-print(selection_sort(random_numbers), 'SELECTION SORT')
-print(insertion_sort(random_numbers), 'INSERTION SORT')
