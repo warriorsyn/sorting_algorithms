@@ -9,44 +9,39 @@ menus = [
     '0 - Fechar programa'
 ]
 
-random_numbers = []
 
-
-def generate_random_numbers(quantity):
-    random_numbers.clear()
-    for i in range(0, quantity):
-        random_numbers.append(random.randint(1, 100))
-
-
-def handle_menu_action(option):
+def handle_menu_action(option, data):
     if option == 1:
         print('--------------------')
         print('BUBBLE SORT')
-        generate_random_numbers(10)
-        print(*bubble_sort(random_numbers))
+        print(*bubble_sort(data))
         print('--------------------')
     if option == 2:
         print('--------------------')
         print('SELECTION SORT')
-        generate_random_numbers(10)
-        print(*selection_sort(random_numbers))
+        print(*selection_sort(data))
         print('--------------------')
     if option == 3:
         print('--------------------')
         print('INSERTION SORT')
-        generate_random_numbers(10)
-        print(*insertion_sort(random_numbers))
+        print(*insertion_sort(data))
         print('--------------------')
     if option == 4:
         print('--------------------')
         print('QUICK SORT')
-        generate_random_numbers(10)
-        print(*quick_sort(random_numbers, 0, len(random_numbers) - 1))
+        print(*quick_sort(data, 0, len(data) - 1))
         print('--------------------')
 
 
 def __init__():
-    generate_random_numbers(10)
+    numbers_choose = input("Escolha uma série do números separados por ',' para serem ordenados: ")
+
+    splited = numbers_choose.split(',')
+
+    map_object = map(int, splited)
+
+    integers_list = list(map_object)
+
     while True:
         for menu in menus:
             print(menu)
@@ -59,7 +54,7 @@ def __init__():
 
         if not option:
             break
-        handle_menu_action(option)
+        handle_menu_action(option, integers_list)
 
 
 __init__()
