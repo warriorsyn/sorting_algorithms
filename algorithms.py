@@ -1,8 +1,5 @@
 import time
 
-random_numbers = [10, 0, 24, 2, 4, 3]
-
-
 # measure decorator
 
 def measure(func):
@@ -62,3 +59,33 @@ def insertion_sort(numbers):
         numbers[k + 1] = aux
 
     return numbers
+
+
+def partition(arr, left, right):
+    i = left + 1
+    j = right
+    pivot = arr[left]
+
+    while i <= j:
+        if arr[i] <= pivot:
+            i += 1
+        elif arr[j] > pivot:
+            j -= 1
+        elif i <= j:
+            arr[i], arr[j] = arr[j], arr[i]
+            i += 1
+            j -= 1
+
+    arr[left], arr[j] = arr[j], arr[left]
+
+    return j
+
+
+@measure
+def quick_sort(arr, left, right):
+    time.sleep(0)
+    if left < right:
+        j = partition(arr, left, right)
+        quick_sort(arr, left, j - 1)
+        quick_sort(arr, j + 1, right)
+    return arr
